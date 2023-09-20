@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="javacopy2b.js" type="module"></script>
+    <script src="deneme.js" type="module"></script> 
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}
+    </style>
+    <style>
+        html{
+        font-size: 22px
+        }
+        body{
+            background-color: rgba(76, 92, 39, 0.9);
+            color: rgb(206, 190, 190);
+        }
+        a{
+            color:rgb(214, 31, 31);
+        }
+        a:visited{
+            color: rgb(93, 179, 111);
+        }
+        a:hover, a:active{
+            color: #eee;
+        }
+    </style>
+    <style>
+        input[type="checkbox"] {
+        display: none;
+        }
+
+        /* Style for the switch button */
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background-color: rgb(51, 121, 34);
+        border-radius: 60px;
+        }
+
+        /* Style for the switch button's sliding knob */
+        .switch::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        background-color: #4CAF50;
+        border-radius: 50%;
+        transition: all 0.3s;
+        }
+
+        /* Style for the switch button when it's ON */
+        input[type="checkbox"]:checked + .switch::after {
+        left: 10px;
+        background-color: #ff0000;
+        
+        }
+        input[type="checkbox"]:checked + .switch {
+        left: 0px;
+        background-color: #a00202;
+        
+        }
+    </style>
+    <style>
+        button {
+        width: 90px;
+        height: 35px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #Tv {
+        width: 150px;
+        height: 50px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #jetton {
+        width: 150px;
+        height: 50px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #exit {
+        width: 150px;
+        height: 50px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #change {
+        width: 150px;
+        height: 50px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #select {
+        width: 150px;
+        height: 50px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #emergency {
+        width: 150px;
+        height: 50px;
+        background-color: #4CAF50;
+        position: center;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+        #time {
+        width: 60px;
+        height: 25px;
+        background-color: #ee05057c;
+        position: center;
+        cursor: pointer;
+        border-radius: 7px;
+
+        }
+    </style>
+    <link rel="icon" href="data:,">
+    <!--   Add your favorite css    -->
+    <link rel="stylesheet" href="neden.css">
+    <title>Firebase read and write</title>
+</head>
+<style>
+h1 {
+  text-align: center;
+}
+
+</style>
+<body>
+    
+    <h1>WSP32 Firebase Trial</h1>
+    <div class="esp32_web_server_login_page_top">
+        <!--
+        <input type="text" placeholder="user name" id="user_name">
+        <input type="text" placeholder="user password" id="user_name_password">
+        -->
+        <div>
+              <button id="jetton">Jetton button</button>
+        </div>
+        <div>
+            <button id="exit">Exit button</button>
+        </div>
+        <div>
+            <button id="change">Change button</button>
+        </div>
+        <div>
+            <button id="select">Select button</button>
+        </div>
+        <div>
+            <button id="time">Timer</button>
+            <input type="number" placeholder="500" id="t" style="background-color: rgb(255, 255, 255);
+            border-radius: 8px;width: 60px; color: rgb(117, 31, 31);">
+        </div>
+        
+        <div>
+            
+            <input type="checkbox" id="mySwitch2">
+            <label class="switch2" for="mySwitch2"></label>
+
+        </div>
+        <!--
+        <div>
+            <p>tv <abbr title="mal"><a href="tv.html">link</a></abbr>... </p>
+        </div>
+        -->
+        <p>emergency button</p>
+        <!--
+        <div>
+            <button id="emergency">Emergency button</button>
+        </div>
+        -->
+        <input type="checkbox" id="mySwitch">
+
+        <!-- Create a label for the switch button -->
+        <label class="switch" for="mySwitch"></label>
+        
+    </div>
+    <hr>
+    <div class="firebase_display_text">
+        
+        <h2><<<----- Display data ----->>></h2>
+        <p id="display_read_data">NO data</p>
+    </div>
+    <div>
+        <button id="on-off">TV on-off</button>
+    </div>
+    <div>
+        <button id="TV1">1</button>
+        <button id="Tv2">2</button>
+        <button id="Tv3">3</button>
+    </div>
+    <div>
+        <button id="Tv4">4</button>
+        <button id="Tv5">5</button>
+        <button id="Tv6">6</button>
+    </div>
+    <div>
+        <button id="Tv7">7</button>
+        <button id="Tv8">8</button>
+        <button id="Tv9">9</button>
+    </div>
+    <div>
+        <button id="Tv0">0</button>
+    </div>
+    <hr>
+    <div>
+        <button id="Tvup">up</button>
+    </div>
+    <div>
+        <button id="Tvleft">left</button>
+        <button id="Tvok">ok</button>
+        <button id="Tvright">right</button>
+    </div>
+    <div>
+        <button id="Tvdown">down</button>
+    </div>
+    <hr>
+    <div>
+        <button id="Tvvol+">vol+</button>
+        <button id="Tvp+">p+</button>
+    </div>
+    <div>
+        <button id="Tvvol-">vol-</button>
+        <button id="Tvp-">p-</button>
+    </div>
+    <hr>
+    <hr>
+    <div>
+        <button id="29">Tv8</button>
+        <button id="241">S+</button>
+        <button id="34">TLC</button>
+    </div>
+    <div>
+        <button id="355">24K</button>
+        <button id="666">TRTmusic</button>
+        <button id="115">Discovery</button>
+    </div>
+    <div>
+        <button id="112">Natgeo</button>
+        <button id="119">V History</button>
+        <button id="2">Sinema tv</button>
+    </div>
+    
+</body>
+</html>
